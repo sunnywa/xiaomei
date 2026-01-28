@@ -1,21 +1,27 @@
 # 使用 Ubuntu 20.04 LTS 作为基础镜像
-FROM ubuntu:20.04
+FROM swr.cn-north-4.myhuaweicloud.com/ddn-k8s/quay.io/centos/centos:7.6.1810
 
-# 更新包列表并安装必要的工具
-RUN apt-get update && apt-get install -y \
+# 设置中文语言环境（可选）
+ENV LANG=en_US.UTF-8
+
+# 安装 EPEL 仓库
+RUN yum install -y epel-release
+
+# 更新系统并安装必要的工具
+RUN yum update -y && yum install -y \
     nginx \
     stress-ng \
     fio \
     iperf3 \
     sysstat \
     bc \
-    procps \
+    procps-ng \
     python3 \
-    curl \
     wget \
     vim \
-    && rm -rf /var/lib/apt/lists/*
-
+    net-tools \
+    pciutils \
+    && yum clean all
 
 # 暴露 nginx 端口
 EXPOSE 80
