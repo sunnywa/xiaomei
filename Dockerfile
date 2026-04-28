@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     coreutils \
     perl \
-    bpftool \
+    linux-tools-$(uname -r) linux-headers-$(uname -r) linux-tools-common \
     kmod \
     iputils-ping \
     util-linux \
