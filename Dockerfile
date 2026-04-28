@@ -5,6 +5,20 @@ FROM ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # 更新包列表并安装必要的工具
+# RUN apt-get update && apt-get install -y \
+#     nginx \
+#     stress-ng \
+#     fio \
+#     iperf3 \
+#     sysstat \
+#     bc \
+#     procps \
+#     python3 \
+#     curl \
+#     wget \
+#     vim \
+#     && rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y \
     nginx \
     stress-ng \
@@ -15,6 +29,30 @@ RUN apt-get update && apt-get install -y \
     procps \
     python3 \
     curl \
+    coreutils \
+    perl \
+    bpftool \
+    kmod \
+    iputils-ping \
+    util-linux \
+    netcat-openbsd \
+    strace \
+    tcpdump \
+    nmap \
+    dnsutils \
+    telnet \
+    socat \
+    lsof \
+    htop \
+    ltrace \
+    gdb \
+    tree \
+    jq \
+    openssl \
+    cgroup-tools \
+    git \
+    make \
+    gcc \
     wget \
     vim \
     && rm -rf /var/lib/apt/lists/*
